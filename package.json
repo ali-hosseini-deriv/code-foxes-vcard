@@ -8,6 +8,7 @@
     "@mui/material": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "qr-code-and-vcard": "^0.9.1",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",
