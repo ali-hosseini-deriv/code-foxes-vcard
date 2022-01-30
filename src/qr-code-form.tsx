@@ -2,6 +2,7 @@ import TextInput from "./components/text-input";
 import Text from "./components/typography";
 import Felx from "./components/flex";
 import DropDown from "./components/dropdown";
+import Button from "./components/button";
 
 const countries = [
   { value: 1, text: "Malta" },
@@ -43,7 +44,7 @@ const QrCodeForm = () => {
         <Text variant="subtitle1" text="STREET ADDRES" />
         <TextInput />
         <Text variant="subtitle1" text="COUNTRY" />
-        <DropDown value='country' label="country" items={countries} />
+        <DropDown value="country" label="country" items={countries} />
         <Text variant="subtitle1" text="STATE" />
         <TextInput />
         <Text variant="subtitle1" text="CITY" />
@@ -51,6 +52,7 @@ const QrCodeForm = () => {
         <Text variant="subtitle1" text="ZIP" />
         <TextInput />
       </Felx>
+      <Button text="Submit" onclick={() => alert('Heey')} />
     </>
   );
 };
