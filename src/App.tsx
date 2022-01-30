@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import QrCodeForm from './qr-code-form';
 // @ts-ignore
 import qrCode from 'qr-code-and-vcard/dist/QrCode'
 import ProTip from './ProTip';
@@ -84,8 +85,10 @@ export default function App() {
                 <Typography variant="h4" component="h1" gutterBottom>
                     Create React App example with TypeScript
                 </Typography>
+                <QrCodeForm />
                 <ProTip/>
                 <Copyright/>
+
             </Box>
         </Container>
     );
