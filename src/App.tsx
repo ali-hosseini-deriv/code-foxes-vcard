@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+
 import QrCodeForm from './qr-code-form';
 // @ts-ignore
 import qrCode from 'qr-code-and-vcard/dist/QrCode'
-import ProTip from './ProTip';
+import {Grid, Stack} from '@mui/material';
+import Header from './components/header/header';
 
 const testCard = {
     version: '3.0',
@@ -62,34 +61,29 @@ const testCard = {
     }
 };
 
-function Copyright() {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}.
-        </Typography>
-    );
-}
 
 export default function App() {
-    const qr_image = qrCode.createVCardQr(testCard, {typeNumber: 30, cellSize: 5})
+    const qr_image = qrCode.createVCardQr(testCard, {typeNumber: 30, cellSize: 2})
 
     return (
-        <Container maxWidth="sm">
-            <div dangerouslySetInnerHTML={{__html: qr_image}}>
-            </div>
-            <Box sx={{my: 4}}>
-                <Typography variant="h4" component="h1" gutterBottom>
-                    Create React App example with TypeScript
-                </Typography>
-                <QrCodeForm />
-                <ProTip/>
-                <Copyright/>
+        <Container maxWidth={false} disableGutters>
+            <Stack>
 
-            </Box>
+                <Header/>
+            </Stack>
+            <Stack>
+                <Grid container spacing={2}>
+                    <Grid item md={3}>
+                    </Grid>
+                    <Grid item md={6}>
+                        <QrCodeForm />
+                    </Grid>
+                    <Grid item md={3}>
+                <div dangerouslySetInnerHTML={{__html: qr_image}}/>
+                    </Grid>
+
+                </Grid>
+            </Stack>
         </Container>
     );
 }
