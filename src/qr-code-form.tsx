@@ -1,6 +1,6 @@
 import TextInput from "./components/text-input";
 import Text from "./components/typography";
-import Felx from "./components/flex";
+import Flex from "./components/flex";
 import DropDown from "./components/dropdown";
 import Button from "./components/button";
 
@@ -15,14 +15,14 @@ const QrCodeForm = () => {
   return (
     <>
       <Text variant="h6" text="YOUR NAME" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="FIRST NAME" />
         <TextInput />
         <Text variant="subtitle1" text="LAST NAME" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Text variant="h6" text="CONTACT" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="EMAIL" />
         <TextInput />
         <Text variant="subtitle1" text="MOBILE" />
@@ -31,16 +31,16 @@ const QrCodeForm = () => {
         <TextInput />
         <Text variant="subtitle1" text="FAX" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Text variant="h6" text="COMPANY" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="COMPANY NAME" />
         <TextInput />
         <Text variant="subtitle1" text="YOUR JOB" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Text variant="h6" text="LOCATION" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="STREET ADDRES" />
         <TextInput />
         <Text variant="subtitle1" text="COUNTRY" />
@@ -51,7 +51,7 @@ const QrCodeForm = () => {
         <TextInput />
         <Text variant="subtitle1" text="ZIP" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Button text="Submit" onclick={() => alert('Heey')} />
     </>
   );
