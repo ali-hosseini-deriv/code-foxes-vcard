@@ -8,11 +8,6 @@ import { Link } from "react-router-dom";
 // @ts-ignore
 import qrCode from "qr-code-and-vcard/dist/QrCode";
 
-const data = [
-  { name: "sara", lastname: "khsoropour" },
-  { name: "Ako", lastname: "donno" },
-];
-
 const testCard = {
   version: "3.0",
   lastName: "Нижинский",
@@ -124,7 +119,7 @@ const QrCodeForm = () => {
         <div dangerouslySetInnerHTML={{ __html: qr_image }} />
       </Grid>
       <Button text="Generate QR Code" onclick={() => alert("Heey")} />
-      <Link to="./visit-card" state={testCard}>
+      <Link to="./visit-card" state={{ ...testCard, qr_image }}>
         Generate Visit Card
       </Link>
     </>
