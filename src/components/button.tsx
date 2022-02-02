@@ -19,13 +19,14 @@ const StyledButton = styled(MuiButton)(
 
 type Props = {
     text: string;
-    onclick: MouseEventHandler<HTMLButtonElement>;
+    onclick?: MouseEventHandler<HTMLButtonElement>;
     variant?: "text" | "outlined" | "contained";
+    type?: "submit"
 };
 
-const Button: React.FC<Props> = ({text = "", onclick, variant = "contained"}) => {
+const Button: React.FC<Props> = ({text = "", onclick, variant = "contained",type}) => {
     return (
-        <StyledButton variant={variant} onClick={onclick}>
+        <StyledButton type={type} variant={variant} onClick={onclick}>
             {text}
         </StyledButton>
     );
