@@ -2,8 +2,9 @@ import Box from "@mui/material/Box";
 import { styled } from "@mui/styles";
 
 const Flex = styled(Box)({
-  display: "flex",
-  maxWidth: "100%",
+  // display: "flex",
+
+
 });
 
 // type Props = {
