@@ -1,12 +1,56 @@
 import TextField from "@mui/material/TextField";
-import { styled } from "@mui/styles";
+import React from 'react';
+import {makeStyles} from '@mui/styles';
 
-const StyledTextField  = styled(TextField)({
+const useStyles = makeStyles(() => ({
+    textField: {
+        width: "100%",
+        margin: "5px 5px 5px 0px !important",
+        paddingRight:"10px !important",
+        "& div": {
+            margin: "0px !important"
+        },
+        "& input": {
+            minHeight: "35px",
+            backgroundColor: '#f0f3f7',
 
-});
 
-const TextInput = () => {
-  return <StyledTextField variant="outlined" />;
+        },
+        "& label": {
+            position: 'relative',
+            fontWeight: 'bold',
+
+        }
+    },
+    underline: {
+
+    }
+}))
+
+interface ITextInput {
+    id: string,
+    name: string,
+    type: string,
+    onChange: (value: any) => void,
+    label: string,
+}
+
+const TextInput: React.FC<ITextInput> = ({id, name, type = "text", onChange, label}) => {
+    const styles = useStyles()
+    return <TextField
+        className={styles.textField}
+        InputLabelProps={{
+            shrink: true,
+            style: { color: 'black' },
+        }}
+        id={id}
+        name={name}
+        label={label}
+        type={type}
+        onChange={onChange}
+        variant="standard"
+
+    />
 };
 
 export default TextInput;
