@@ -9,6 +9,7 @@
     "@mui/styles": "^5.3.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "dom-to-image": "^2.6.0",
     "qr-code-and-vcard": "^0.9.1",
     "react": "latest",
     "react-dom": "latest",
