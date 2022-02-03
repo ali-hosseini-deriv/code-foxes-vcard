@@ -3,10 +3,15 @@ import Text from "./components/typography";
 import Felx from "./components/flex";
 import DropDown from "./components/dropdown";
 import Button from "./components/button";
-import { Grid } from "@mui/material";
+import RadioButton from "./components/radio-button";
+import RadioGroup from "./components/radio-group";
+import Dialog from "./components/dialog";
+import templates from "./enums";
+import { Grid, Radio } from "@mui/material";
 import { Link } from "react-router-dom";
 // @ts-ignore
 import qrCode from "qr-code-and-vcard/dist/QrCode";
+import { useEffect, useState } from "react";
 
 const testCard = {
   version: "3.0",
@@ -70,10 +75,21 @@ const countries = [
 ];
 
 const QrCodeForm = () => {
+  const [is_open, setOpen] = useState(false);
+
   const qr_image = qrCode.createVCardQr(testCard, {
     typeNumber: 30,
     cellSize: 2,
   });
+
+  function openDialog() {
+    setOpen(!is_open);
+  }
+
+  function handleClose() {
+    alert("close");
+    return true;
+  }
 
   return (
     <>
@@ -118,10 +134,24 @@ const QrCodeForm = () => {
       <Grid item md={3}>
         <div dangerouslySetInnerHTML={{ __html: qr_image }} />
       </Grid>
-      <Button text="Generate QR Code" onclick={() => alert("Heey")} />
-      <Link to="./visit-card" state={{ ...testCard, qr_image }}>
-        Generate Visit Card
-      </Link>
+      <Button text="Generate QR Code" onclick={() => alert()} />
+      <Button text="Generate Visit Card" onclick={() => openDialog()} />
+
+      <Dialog is_open={is_open} handleClose={handleClose}>
+        <Text variant="h4" text="Choose your preffered template" />
+        <Link
+          to="./visit-card"
+          state={{ ...testCard, qr_image, template: templates.modern }}
+        >
+          Modern Template
+        </Link>
+        <Link
+          to="./visit-card"
+          state={{ ...testCard, qr_image, template: templates.simple }}
+        >
+          Simple Template
+        </Link>
+      </Dialog>
     </>
   );
 };

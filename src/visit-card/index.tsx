@@ -4,9 +4,12 @@ import Container from "@mui/material/Container";
 import Text from "../components/typography";
 import Button from "../components/button";
 import Flex from "../components/flex";
+import ModernTemplate from "../templates/modern-template";
 import { styled } from "@mui/styles";
+import templates from "../enums";
 // @ts-ignore
 import domtoimage from "dom-to-image";
+import SimpleTemplate from "../templates/simple-template";
 
 export default function visitCard() {
   let data: any = useLocation().state;
@@ -23,35 +26,17 @@ export default function visitCard() {
   }
 
   function sendTo() {
-    window.open('mailto:');
+    window.open("mailto:");
   }
 
   return (
     <Container maxWidth={false}>
-      <Card bgColor="#202221" id="visit-card" width="42rem">
-        <Flex>
-          <Flex direction="column">
-            <Text variant="h4" text="Deriv Card" color="#ff4f48" />
-            <Text variant="h5" text={data.firstName} color="white" />
-            <Text variant="h5" text={data.lastName} color="white" />
-            <Text variant="h4" text="***" color="#ff4f48" />
+      {data.template === templates.modern ? (
+        <ModernTemplate data={data} />
+      ) : (
+        <SimpleTemplate data={data} />
+      )}
 
-            <Text variant="h6" text="EMAIL:" color="white" />
-            <Text variant="subtitle1" text={data.email} color="white" />
-
-            <Text variant="h6" text="TEL:" color="white" />
-            <Text variant="subtitle1" text={data.cellPhone} color="white" />
-
-            <Text variant="h6" text="WEBSITE:" color="white" />
-            <Text variant="subtitle1" text={data.workUrl} color="white" />
-          </Flex>
-
-          <div
-            style={{ marginLeft: "80px", marginTop: "20px" }}
-            dangerouslySetInnerHTML={{ __html: data.qr_image }}
-          />
-        </Flex>
-      </Card>
       <Flex>
         <Button text="Download" onclick={() => downloadCard()} />
         <Button text="Send to" onclick={() => sendTo()} />
