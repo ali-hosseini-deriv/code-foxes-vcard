@@ -1,9 +1,10 @@
 import Box from "@mui/material/Box";
 import { styled } from "@mui/styles";
 
-const Felx = styled(Box)({
-  display: "flex",
-  maxWidth: "100%",
+const Flex = styled(Box)({
+  // display: "flex",
+
+
 });
 
 // type Props = {
@@ -11,7 +12,7 @@ const Felx = styled(Box)({
 // };
 
 // const Flex: React.FC<Props> = ({ props }) => {
-//   return <FelxBox component="div">{props.chilren}</FelxBox>;
+//   return <FlexBox component="div">{props.chilren}</FlexBox>;
 // };
 
-export default Felx;
+export default Flex;
