@@ -53,7 +53,7 @@ const DropDown: React.FC<Props> = ({name, value, label, items, onChange}) => {
 
             >
                 {items.map((item: string) => {
-                    return <MenuItem value={item}>{item}</MenuItem>;
+                    return <MenuItem key={item} value={item}>{item}</MenuItem>;
                 })}
             </Select>
         </div>
