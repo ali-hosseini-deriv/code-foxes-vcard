@@ -23,8 +23,9 @@ export default function visitCard() {
   }
 
   function sendTo() {
-    
+    window.open('mailto:');
   }
+
   return (
     <Container maxWidth={false}>
       <Card bgColor="#202221" id="visit-card" width="42rem">
