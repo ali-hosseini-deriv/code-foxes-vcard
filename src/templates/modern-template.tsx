@@ -32,28 +32,30 @@ const ModernTemplate: React.FC<Props> = ({
 
 }) => {
   const styles = useStyles({ color, width, bgColor });
+  const {formValues , qr_image}  = data
+  console.log('form values : ')
   return (
     <Card bgColor="#202221" id="visit-card" width="42rem">
       <Flex>
         <Flex direction="column">
           <Text variant="h4" text="Deriv Card" color="#ff4f48" />
-          <Text variant="h5" text={data.firstName} color="white" />
-          <Text variant="h5" text={data.lastName} color="white" />
+          <Text variant="h5" text={formValues.firstName} color="white" />
+          <Text variant="h5" text={formValues.lastName} color="white" />
           <Text variant="h4" text="***" color="#ff4f48" />
 
           <Text variant="h6" text="EMAIL:" color="white" />
-          <Text variant="subtitle1" text={data.email} color="white" />
+          <Text variant="subtitle1" text={formValues.email} color="white" />
 
           <Text variant="h6" text="TEL:" color="white" />
-          <Text variant="subtitle1" text={data.cellPhone} color="white" />
+          <Text variant="subtitle1" text={formValues.cellPhone} color="white" />
 
           <Text variant="h6" text="WEBSITE:" color="white" />
-          <Text variant="subtitle1" text={data.workUrl} color="white" />
+          <Text variant="subtitle1" text={formValues.workUrl} color="white" />
         </Flex>
 
         <div
           style={{ marginLeft: "80px", marginTop: "20px" }}
-          dangerouslySetInnerHTML={{ __html: data.qr_image }}
+          dangerouslySetInnerHTML={{ __html: qr_image }}
         />
       </Flex>
     </Card>

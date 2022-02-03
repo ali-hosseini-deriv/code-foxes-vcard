@@ -13,6 +13,8 @@ import SimpleTemplate from "../templates/simple-template";
 
 export default function visitCard() {
   let data: any = useLocation().state;
+  
+  console.log('dataL' , data);
 
   async function downloadCard() {
     domtoimage
