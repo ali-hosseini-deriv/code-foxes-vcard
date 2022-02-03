@@ -1,6 +1,6 @@
 import TextInput from "./components/text-input";
 import Text from "./components/typography";
-import Felx from "./components/flex";
+import Flex from "./components/flex";
 import DropDown from "./components/dropdown";
 import Button from "./components/button";
 import RadioButton from "./components/radio-button";
@@ -83,25 +83,24 @@ const QrCodeForm = () => {
   });
 
   function openDialog() {
-    setOpen(!is_open);
+    setOpen(true);
   }
 
   function handleClose() {
-    alert("close");
-    return true;
+    setOpen(false);
   }
 
   return (
     <>
       <Text variant="h6" text="YOUR NAME" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="FIRST NAME" />
         <TextInput />
         <Text variant="subtitle1" text="LAST NAME" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Text variant="h6" text="CONTACT" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="EMAIL" />
         <TextInput />
         <Text variant="subtitle1" text="MOBILE" />
@@ -110,16 +109,16 @@ const QrCodeForm = () => {
         <TextInput />
         <Text variant="subtitle1" text="FAX" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Text variant="h6" text="COMPANY" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="COMPANY NAME" />
         <TextInput />
         <Text variant="subtitle1" text="YOUR JOB" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Text variant="h6" text="LOCATION" />
-      <Felx>
+      <Flex>
         <Text variant="subtitle1" text="STREET ADDRES" />
         <TextInput />
         <Text variant="subtitle1" text="COUNTRY" />
@@ -130,7 +129,7 @@ const QrCodeForm = () => {
         <TextInput />
         <Text variant="subtitle1" text="ZIP" />
         <TextInput />
-      </Felx>
+      </Flex>
       <Grid item md={3}>
         <div dangerouslySetInnerHTML={{ __html: qr_image }} />
       </Grid>
@@ -138,19 +137,27 @@ const QrCodeForm = () => {
       <Button text="Generate Visit Card" onclick={() => openDialog()} />
 
       <Dialog is_open={is_open} handleClose={handleClose}>
-        <Text variant="h4" text="Choose your preffered template" />
-        <Link
-          to="./visit-card"
-          state={{ ...testCard, qr_image, template: templates.modern }}
-        >
-          Modern Template
-        </Link>
-        <Link
-          to="./visit-card"
-          state={{ ...testCard, qr_image, template: templates.simple }}
-        >
-          Simple Template
-        </Link>
+        <Text variant="h6" text="Choose your preffered template" />
+        <Flex>
+          <Link
+            style={{
+              marginRight: "2rem",
+              textDecoration: "none",
+              padding: "5px",
+            }}
+            to="./visit-card"
+            state={{ ...testCard, qr_image, template: templates.modern }}
+          >
+            Modern Template
+          </Link>
+          <Link
+            style={{ textDecoration: "none", padding: "5px" }}
+            to="./visit-card"
+            state={{ ...testCard, qr_image, template: templates.simple }}
+          >
+            Simple Template
+          </Link>
+        </Flex>
       </Dialog>
     </>
   );

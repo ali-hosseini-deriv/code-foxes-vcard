@@ -5,7 +5,7 @@ import { Theme } from "@mui/system";
 
 const useStyles = makeStyles((theme: Theme) => ({
   Dialog: {
-    padding: "2px",
+
   },
 }));
 
