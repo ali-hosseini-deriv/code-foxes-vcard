@@ -6,52 +6,8 @@ import QrCodeForm from './qr-code-form';
 import qrCode from 'qr-code-and-vcard/dist/QrCode'
 import {Grid, Stack} from '@mui/material';
 import Header from './components/header/header';
-import {makeStyles} from '@mui/styles';
-import {Theme} from '@mui/system';
 
-const useStyles = makeStyles(() => ({
-    body: {
-        height: "100vh",
-        width: "100vw",
-        backgroundColor:"#fafafa"
-    },
-    gridStyle: {
-        border: "1px solid #ebe9e9",
-        borderRadius: "5px",
-        padding: 30,
-    },
-    form: {
-        padding:'30px',
-        margin:'30px !important',
 
-        // borderColor: "#ebe9e9",
-    },
-    centerElements: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        width: "100%",
-        height: "100%",
-        padding: 0,
-        alignItems:'center',
-
-    },
-    qr: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        height:"100%",
-        justifyContent:'center',
-        "& img": {
-
-        }
-    },
-    qrContainer:{
-        padding:"30px",
-        height:"100%",
-        width:"100%",
-    }
-}))
 const testCard = {
     version: '3.0',
     lastName: 'Нижинский',
@@ -109,20 +65,22 @@ const testCard = {
 
 export default function App() {
     const qr_image = qrCode.createVCardQr(testCard, {typeNumber: 30, cellSize: 2})
-    const styles = useStyles()
+
     return (
-        <Container maxWidth={false} disableGutters className={styles.body}>
+        <Container style={{backgroundColor: "#fafafa"}} maxWidth={false}  disableGutters>
             <Stack>
+
                 <Header/>
-
-
-                <Grid container className={styles.centerElements}>
-
-                    <Grid className={`${styles.gridStyle} ${styles.form}`} item md={7}>
-                        <QrCodeForm/>
+            </Stack>
+            <Stack>
+                <Grid container spacing={2}>
+                    <Grid item md={3}>
                     </Grid>
-                    <Grid item md={4} className={`${styles.gridStyle} ${styles.qrContainer}`}>
-                        <div dangerouslySetInnerHTML={{__html: qr_image}} className={styles.qr}/>
+                    <Grid item md={6}>
+                        <QrCodeForm />
+                    </Grid>
+                    <Grid item md={3}>
+                <div dangerouslySetInnerHTML={{__html: qr_image}}/>
                     </Grid>
 
                 </Grid>

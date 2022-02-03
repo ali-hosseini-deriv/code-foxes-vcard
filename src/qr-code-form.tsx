@@ -1,185 +1,145 @@
 import TextInput from "./components/text-input";
 import Text from "./components/typography";
+import {Felx, StyledGrid} from "./components/flex";
 import DropDown from "./components/dropdown";
 import Button from "./components/button";
-import React from 'react'
+import styled from 'styled-components';
 import {Grid} from '@mui/material';
 
+const FormCard = styled.div`
+  border: 1px solid #f2f2f2;
+  margin-top: 50px;
+  border-radius: 5px;
+  background-color: white;
+`
+const FormHeader = styled.div`
+  border-bottom: 1px solid #f2f2f2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 30px;
+  background-color: #fafafa;
+  display: flex;
+
+  & .square {
+    width: 25px;
+    height: 25px;
+    padding: 25px;
+    background-color: #59626d;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+`
+const StyledText = styled.p`
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 35px;
+    padding-bottom: 8px;
+    /* padding-top: 25px; */
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.6;
+`
+
+const Wrapper = styled.div`
+    padding: 0 30px;
+`
+
+const WrapperButton = styled.div`
+    margin: 50px 0;
+    padding: 0 30px;
+`
+
+
+
+
+
 const countries = [
-    "Malta",
-    "Iran",
-    "USA",
-    "Belarus",
+  { value: 1, text: "Malta" },
+  { value: 2, text: "Iran" },
+  { value: 3, text: "USA" },
+  { value: 4, text: "Belarus" },
 ];
-const defaultValues = {
-    name: "",
-    lastName: "",
-    mobile: "",
-    phone: "",
-    fax: "",
-    email: "",
-    company: "",
-    job: "",
-    country: "",
-    street: "",
-    zip: "",
-    state: "",
-    city: "",
-};
+
 const QrCodeForm = () => {
-    const [formValues, setFormValues] = React.useState(defaultValues)
-    const onValueChange = (e: any) => {
-        const {name, value} = e.target
-        setFormValues({...formValues, [name]: value})
-    }
+  return (
+    <FormCard>
+      <FormHeader>
+        <div className="square"/>
+        <div>
+          <Text variant="h6" text="VCard" />
+          <Text variant="h9" text="Generate your VCard" />
+        </div>
+      </FormHeader>
+      <StyledText>YOUR NAME</StyledText>
+      <StyledGrid container spacing={2}>
+        <Grid item md={6}>
+          <TextInput label="FIRST NAME"/>
+        </Grid>
+        <Grid item md={6}>
+          <TextInput label="LAST NAME" />
+        </Grid>  
+      </StyledGrid>
+      <StyledText>CONTACT</StyledText>
+      <Wrapper>
+          <TextInput label="EMAIL" />
+      </Wrapper>
+        <StyledGrid container spacing={2}>
+        <Grid item md={6}>
+          <TextInput label="MOBILE"/>
+        </Grid>
+        <Grid item md={6}>
+          <TextInput label="PHONE" />
+        </Grid>  
+      </StyledGrid>
+        <StyledGrid container spacing={2}>
+        <Grid item md={6}>
+          <TextInput label="FAX"/>
+        </Grid>
+      </StyledGrid>
+      
+      <StyledText>COMPANY</StyledText>
 
-    return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            console.log("values", formValues)
-        }}>
-            <Text variant="h6" text="YOUR NAME"/>
-            <Grid container>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="first-name-input"
-                        name="first-name"
-                        label="First Name"
-                        type="text"
-                        onChange={onValueChange}
+      <StyledGrid container spacing={2}>
+        <Grid item md={6}>
+          <TextInput label="COMPANY NAME"/>
+        </Grid>
+        <Grid item md={6}>
+          <TextInput label="YOUR JOB"/>
+        </Grid>  
+      </StyledGrid>
 
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="first-name-input"
-                        name="last-name"
-                        label="Last Name"
-                        type="text"
-                        onChange={onValueChange}
+      <StyledText>LOCATION</StyledText>
 
-                    />
-                </Grid>
-            </Grid>
-            <Text variant="h6" text="CONTACT"/>
-            <Grid container>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="email-input"
-                        name="email"
-                        label="Email"
-                        type="text"
-                        onChange={onValueChange}
+      <Wrapper>
+          <TextInput label="STREET ADDRES" />
+      </Wrapper>
+        <StyledGrid container spacing={2}>
+        <Grid item md={6}>
+          <TextInput label="COUNTRY" />
+        </Grid>
+        <Grid item md={6}>
+          <TextInput label="STATE" />
+        </Grid>  
+      </StyledGrid>
+        <StyledGrid container spacing={2}>
+        <Grid item md={6}>
+           <TextInput label="CITY" />
+        </Grid>
+        <Grid item md={6}>
+           <TextInput label="ZIP"/>
+        </Grid>
+      </StyledGrid>
 
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="mobile-input"
-                        name="mobile"
-                        label="Mobile"
-                        type="text"
-                        onChange={onValueChange}
+      <StyledText>YOUR NAME</StyledText>
+      <Wrapper>
+          <TextInput label="WEBSITE" />
+      </Wrapper>
 
-                    />
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="phone-input"
-                        name="phone"
-                        label="Phone"
-                        type="text"
-                        onChange={onValueChange}
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="fax-input"
-                        name="fax"
-                        label="Fax"
-                        type="text"
-                        onChange={onValueChange}
-
-                    />
-                </Grid>
-            </Grid>
-            <Text variant="h6" text="COMPANY"/>
-            <Grid container>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="company-name-input"
-                        name="company-name"
-                        label="Company"
-                        type="text"
-                        onChange={onValueChange}
-
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-
-                    <TextInput
-                        id="job-input"
-                        name="job"
-                        label="Your Job"
-                        type="text"
-                        onChange={onValueChange}
-
-                    />
-                </Grid>
-            </Grid>
-            <Text variant="h6" text="LOCATION"/>
-            <Grid container>
-                <Grid item md={12} xs={12}>
-                    <TextInput
-                        id="street-input"
-                        name="street"
-                        label="Street Address"
-                        type="text"
-                        onChange={onValueChange}
-
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                    <DropDown name="country" value={formValues.country} label="Country" items={countries}
-                              onChange={onValueChange}
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="state-input"
-                        name="state"
-                        label="State"
-                        type="text"
-                        onChange={onValueChange}
-
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="city-input"
-                        name="city"
-                        label="City Address"
-                        type="text"
-                        onChange={onValueChange}
-
-                    />
-                </Grid>
-                <Grid item md={6} xs={12}>
-                    <TextInput
-                        id="zip-input"
-                        name="zip"
-                        label="Zip Code"
-                        type="text"
-                        onChange={onValueChange}
-
-                    />
-                </Grid>
-            </Grid>
-            <Button text="Submit" type="submit"/>
-        </form>
-    );
+      <WrapperButton>
+          <Button text="Generate QR Code" onclick={() => alert('Heey')} />
+      </WrapperButton>
+      
+    </FormCard>
+  );
 };
 
 export default QrCodeForm;

@@ -1,10 +1,14 @@
 import Box from "@mui/material/Box";
 import { styled } from "@mui/styles";
+import {Grid} from '@mui/material';
 
-const Flex = styled(Box)({
-  // display: "flex",
+export const Felx = styled(Box)({
+  display: "flex",
+  maxWidth: "100%",
+});
 
-
+export const StyledGrid = styled(Grid)({
+  padding: "15px 30px",
 });
 
 // type Props = {
@@ -12,7 +16,7 @@ const Flex = styled(Box)({
 // };
 
 // const Flex: React.FC<Props> = ({ props }) => {
-//   return <FlexBox component="div">{props.chilren}</FlexBox>;
+//   return <FelxBox component="div">{props.chilren}</FelxBox>;
 // };
 
-export default Flex;
+
