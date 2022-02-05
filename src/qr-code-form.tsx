@@ -29,18 +29,25 @@ const FormHeader = styled.div`
     margin-right: 10px;
   }
 `
-const StyledText = styled.p`
-    border-bottom: 1px solid #f2f2f2;
-    padding-left: 35px;
-    padding-bottom: 8px;
-    /* padding-top: 25px; */
-    font-weight: 500;
-    font-size: 1.25rem;
-    line-height: 1.6;
+const TextHeader = styled.div`
+    padding: 20px 30px 0 30px;
+    border-bottom: 1px solid #ececec;
+
+    &  .header_text {
+          padding: 5px 0;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          position: relative;
+          border-bottom: 2px solid #ff8f43;
+          display: inline-block;
+          font-weight: 500;
+          font-size: 1.25rem;
+          line-height: 1.6;
+        }
 `
 
 const Wrapper = styled.div`
-    padding: 0 30px;
+    padding: 15px 30px;
 `
 
 const WrapperButton = styled.div`
@@ -69,7 +76,9 @@ const QrCodeForm = () => {
           <Text variant="h9" text="Generate your VCard" />
         </div>
       </FormHeader>
-      <StyledText>YOUR NAME</StyledText>
+      <TextHeader>
+        <p className="header_text">YOUR NAME</p>
+      </TextHeader>
       <StyledGrid container spacing={2}>
         <Grid item md={6}>
           <TextInput label="FIRST NAME"/>
@@ -78,7 +87,9 @@ const QrCodeForm = () => {
           <TextInput label="LAST NAME" />
         </Grid>  
       </StyledGrid>
-      <StyledText>CONTACT</StyledText>
+      <TextHeader>
+        <p className="header_text">CONTACT</p>
+      </TextHeader>
       <Wrapper>
           <TextInput label="EMAIL" />
       </Wrapper>
@@ -96,7 +107,9 @@ const QrCodeForm = () => {
         </Grid>
       </StyledGrid>
       
-      <StyledText>COMPANY</StyledText>
+      <TextHeader>
+        <p className="header_text">COMPANY</p>
+      </TextHeader>
 
       <StyledGrid container spacing={2}>
         <Grid item md={6}>
@@ -107,7 +120,9 @@ const QrCodeForm = () => {
         </Grid>  
       </StyledGrid>
 
-      <StyledText>LOCATION</StyledText>
+      <TextHeader>
+        <p className="header_text">LOCATION</p>
+      </TextHeader>
 
       <Wrapper>
           <TextInput label="STREET ADDRES" />
@@ -129,7 +144,9 @@ const QrCodeForm = () => {
         </Grid>
       </StyledGrid>
 
-      <StyledText>YOUR NAME</StyledText>
+      <TextHeader>
+        <p className="header_text">ONLINE</p>
+      </TextHeader>
       <Wrapper>
           <TextInput label="WEBSITE" />
       </Wrapper>
