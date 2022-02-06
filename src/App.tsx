@@ -5,7 +5,6 @@ import QrCodeForm from "./qr-code-form";
 import { Grid, Stack } from "@mui/material";
 import Header from "./components/header/header";
 import { makeStyles } from "@mui/styles";
-import { Theme } from "@mui/system";
 
 const useStyles = makeStyles(() => ({
   body: {
@@ -48,59 +47,6 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const testCard = {
-  version: "3.0",
-  lastName: "Нижинский",
-  middleName: "D",
-  firstName: "Костя",
-  nameSuffix: "JR",
-  namePrefix: "MR",
-  nickname: "Test User",
-  gender: "M",
-  organization: "ACME Corporation",
-  workPhone: "312-555-1212444",
-  homePhone: "312-555-1313333",
-  cellPhone: "312-555-1414111",
-  pagerPhone: "312-555-1515222",
-  homeFax: "312-555-1616",
-  workFax: "312-555-1717",
-  birthday: "20140112",
-  anniversary: "20140112",
-  title: "Crash Test Dummy",
-  role: "Crash Testing",
-  email: "john.doe@testmail",
-  workEmail: "john.doe@workmail",
-  url: "http://johndoe",
-  workUrl: "http://acemecompany/johndoe",
-  homeAddress: {
-    label: "Home Address",
-    street: "123 Main Street",
-    city: "Chicago",
-    stateProvince: "IL",
-    postalCode: "12345",
-    countryRegion: "United States of America",
-  },
-
-  workAddress: {
-    label: "Work Address",
-    street: "123 Corporate Loop\nSuite 500",
-    city: "Los Angeles",
-    stateProvince: "CA",
-    postalCode: "54321",
-    countryRegion: "California Republic",
-  },
-
-  source: "http://sourceurl",
-  note: "dddddd",
-  socialUrls: {
-    facebook: "johndoe",
-    linkedIn: "johndoe",
-    twitter: "johndoe",
-    flickr: "johndoe",
-    skype: "test_skype",
-    custom: "johndoe",
-  },
-};
 
 export default function App() {
   const styles = useStyles();
@@ -109,7 +55,7 @@ export default function App() {
     <Container maxWidth={false} disableGutters className={styles.body}>
       <Stack>
         <Header />
-        <Grid className={`${styles.gridStyle} ${styles.form}`} item md={7}>
+        <Grid className={`${styles.gridStyle} ${styles.form}`} item md={7} p={0}>
           <QrCodeForm />
         </Grid>
       </Stack>
