@@ -3,6 +3,15 @@ import { red } from '@mui/material/colors';
 
 // A custom theme for this app
 const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: "#fafafa",
+        }
+      },
+    },
+  },
   palette: {
     primary: {
       main: '#ff444f',

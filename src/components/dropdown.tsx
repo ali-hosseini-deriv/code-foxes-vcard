@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
             minHeight:"44px !important",
         },
         width:"100%",
+        paddingLeft: "10px",
         backgroundColor:'#f0f3f7',
         minHeight:"44px !important",
     }
