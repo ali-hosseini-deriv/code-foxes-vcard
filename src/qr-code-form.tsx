@@ -48,6 +48,7 @@ const useStyles = makeStyles(() => ({
     "& img": {},
   },
   qrContainer: {
+    marginTop: '100px',
     padding: "30px",
     height: "100%",
     width: "100%",
@@ -72,7 +73,7 @@ const defaultValues = {
 };
 const QrCodeForm = () => {
   const [formValues, setFormValues] = React.useState(defaultValues);
-  const [qr_image, setQRImage] = React.useState('');
+  const [qr_image, setQRImage] = React.useState("");
   const [is_open, setOpen] = useState(false);
 
   const styles = useStyles();
@@ -109,7 +110,9 @@ const QrCodeForm = () => {
         console.log("values", formValues);
       }}
     >
-      <Text variant="h6" text="YOUR NAME" />
+      <Grid container>
+        <Grid item md={8} xs={12}>
+          <Text variant="h6" text="YOUR NAME" />
           <Grid container>
             <Grid item md={6} xs={12}>
               <TextInput
@@ -186,7 +189,6 @@ const QrCodeForm = () => {
                 type="text"
                 onChange={onValueChange}
                 placeHolder={"e.g. Google"}
-
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -197,7 +199,6 @@ const QrCodeForm = () => {
                 type="text"
                 onChange={onValueChange}
                 placeHolder={"e.g. Frontend Developer"}
-
               />
             </Grid>
           </Grid>
@@ -211,7 +212,6 @@ const QrCodeForm = () => {
                 type="text"
                 onChange={onValueChange}
                 placeHolder={"e.g. Your Street name"}
-
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -254,23 +254,23 @@ const QrCodeForm = () => {
               />
             </Grid>
           </Grid>
-      <Text variant="span" text="ONLINE"/>
-      <Grid container p={2}>
-        <Grid item md={12} xs={12}>
-          <TextInput
-              id="website-input"
-              name="website"
-              label="Website"
-              type="text"
-              onChange={onValueChange}
-              placeHolder={"e.g. your-website.com"}
-
-          />
+          <Text variant="span" text="ONLINE" />
+          <Grid container p={2}>
+            <Grid item md={12} xs={12}>
+              <TextInput
+                id="website-input"
+                name="website"
+                label="Website"
+                type="text"
+                onChange={onValueChange}
+                placeHolder={"e.g. your-website.com"}
+              />
+            </Grid>
+          </Grid>
         </Grid>
-      </Grid>
         <Grid
           item
-          md={6}
+          md={4}
           className={`${styles.gridStyle} ${styles.qrContainer}`}
         >
           <div
@@ -278,10 +278,10 @@ const QrCodeForm = () => {
             className={styles.qr}
           />
         </Grid>
-      <Button text="Generate QR Code" type="submit" />
+        <Button text="Generate QR Code" type="submit" />
 
-      <Button text="Generate Visit Card" onclick={openDialog} />
-
+        <Button text="Generate Visit Card" onclick={openDialog} />
+      </Grid>
       <Dialog is_open={is_open} handleClose={handleClose}>
         <Text variant="h6" text="Choose your preffered template" />
         <Flex>
