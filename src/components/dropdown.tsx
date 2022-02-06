@@ -3,7 +3,6 @@ import Select from "@mui/material/Select";
 import {makeStyles} from "@mui/styles";
 import MenuItem from "@mui/material/MenuItem";
 import { InputLabel} from '@mui/material';
-import {SelectInputProps} from '@mui/material/Select/SelectInput';
 
 const useStyles = makeStyles(() => ({
     formControl:{
