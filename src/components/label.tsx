@@ -4,19 +4,16 @@ import Typography from "@mui/material/Typography";
 
 const useStyles = makeStyles(() => ({
   Label: {
-    fontWeight: "bold",
-    marginTop: "5px",
-    display: "flex",
-    width: "fit-content",
-    color: (props:any) => props.color,
-    // display:'inline-block'
+    marginRight: "5px",
+    marginLeft: "5px",
+    color: (props: any) => props.color,
   },
 }));
 
 type Props = {
-  variant: any,
-  text: string,
-  color?: string,
+  variant: any;
+  text: string;
+  color?: string;
 };
 
 const Label: React.FC<Props> = ({
@@ -24,9 +21,9 @@ const Label: React.FC<Props> = ({
   variant = "h1",
   color = "white",
 }) => {
-  const styles = useStyles({color});
+  const styles = useStyles({ color });
   return (
-    <Typography className={styles.Label} variant={variant} color={color}>
+    <Typography className={styles.Label} variant={variant}>
       {text}
     </Typography>
   );

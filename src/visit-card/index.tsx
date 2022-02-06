@@ -96,7 +96,11 @@ export default function visitCard() {
                 font_color={font_color}
               />
             ) : (
-              <SimpleTemplate data={data} />
+              <SimpleTemplate
+                data={data}
+                bg_color={bg_color}
+                font_color={font_color}
+              />
             )}
           </Grid>
         </Grid>

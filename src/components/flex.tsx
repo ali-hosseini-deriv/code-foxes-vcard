@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { styled } from "@mui/styles";
+import { propsToClassKey, styled } from "@mui/styles";
 import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/system";
 
@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   FlexBox: {
     display: "flex",
     maxWidth: "100%",
+    margin: (props: any) => props.margin,
     flexDirection: (props: any) => props.direction,
   },
 }));
@@ -14,10 +15,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 type Props = {
   children: React.ReactNode;
   direction?: string;
+  margin?: string;
 };
 
-const Flex: React.FC<Props> = ({ children, direction = "row" }) => {
-  const styles = useStyles({ direction });
+const Flex: React.FC<Props> = ({ children, direction = "row", margin }) => {
+  const styles = useStyles({ direction, margin });
 
   return (
     <Box className={styles.FlexBox} component="div">
