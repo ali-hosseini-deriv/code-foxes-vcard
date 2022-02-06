@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 const useStyles = makeStyles(() => ({
   Label: {
     fontWeight: "bold",
-    marginTop: "10px",
+    marginTop: "5px",
     display: "flex",
     width: "fit-content",
     color: (props:any) => props.color,

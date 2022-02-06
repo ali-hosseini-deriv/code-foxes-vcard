@@ -7,7 +7,27 @@ import Flex from "../components/flex";
 import DropDown from "../components/dropdown";
 import { Grid } from "@mui/material";
 
-const colors = ["blue", "red", "black", "white", "#202221"];
+const colors = [
+  "AliceBlue",
+  "AntiqueWhite",
+  "black",
+  "white",
+  "Bisque",
+  "BlueViolet",
+  "blue",
+  "red",
+  "green",
+  "Brown",
+  "Chartreuse",
+  "CadetBlue",
+  "Chocolate",
+  "Coral",
+  "CornflowerBlue",
+  "Crimson",
+  "DarkBlue",
+  "DarkOliveGreen",
+  "DeepPink",
+];
 
 const useStyles = makeStyles((theme: Theme) => ({
   ModernTemplatet: {
@@ -53,32 +73,39 @@ const ModernTemplate: React.FC<Props> = ({
       <Card bgColor={bg_color} id="visit-card">
         <Flex>
           <Flex direction="column">
-            <Label variant="h4" text="Deriv Card" color="#ff4f48" />
-            <Label
-              variant="h5"
-              text={formValues.firstName}
-              color={font_color}
-            />
-            <Label variant="h5" text={formValues.lastName} color={font_color} />
-            <Label variant="h4" text="***" color="#ff4f48" />
+          <Label variant="h4" text="Deriv Card" color="#ff4f48" />
+            <Flex>
+              <Label
+                variant="h6"
+                text={formValues.firstName}
+                color={font_color}
+              />
+              <Label
+                variant="h6"
+                text={formValues.lastName}
+                color={font_color}
+              />
+            </Flex>
 
-            <Label variant="h6" text="EMAIL:" color={font_color} />
+            <Label variant="h6" text="***" color="#ff4f48" />
+
+            <Label variant="subtitle1" text="EMAIL:" color={font_color} />
             <Label
-              variant="subtitle1"
+              variant="subtitle2"
               text={formValues.email}
               color={font_color}
             />
 
-            <Label variant="h6" text="TEL:" color={font_color} />
+            <Label variant="subtitle1" text="TEL:" color={font_color} />
             <Label
-              variant="subtitle1"
+              variant="subtitle2"
               text={formValues.cellPhone}
               color={font_color}
             />
 
-            <Label variant="h6" text="WEBSITE:" color={font_color} />
+            <Label variant="subtitle1" text="WEBSITE:" color={font_color} />
             <Label
-              variant="subtitle1"
+              variant="subtitle2"
               text={formValues.website}
               color={font_color}
             />
@@ -91,22 +118,20 @@ const ModernTemplate: React.FC<Props> = ({
         </Flex>
       </Card>
       <Grid md={2}>
-       
-          <DropDown
-            name="bgColor"
-            value={bg_color}
-            label="Background Color"
-            items={colors}
-            onChange={onBGColorChange}
-          />
-          <DropDown
-            name="fontColor"
-            value={font_color}
-            label="Font Color"
-            items={colors}
-            onChange={onFontColorChange}
-          />
-
+        <DropDown
+          name="bgColor"
+          value={bg_color}
+          label="Background Color"
+          items={colors}
+          onChange={onBGColorChange}
+        />
+        <DropDown
+          name="fontColor"
+          value={font_color}
+          label="Font Color"
+          items={colors}
+          onChange={onFontColorChange}
+        />
       </Grid>
     </>
   );
