@@ -21,12 +21,13 @@ type Props = {
     text: string;
     onclick?: MouseEventHandler<HTMLButtonElement>;
     variant?: "text" | "outlined" | "contained";
-    type?: "submit"
+    type?: "submit";
+    disabled?:boolean;
 };
 
-const Button: React.FC<Props> = ({text = "", onclick, variant = "contained",type}) => {
+const Button: React.FC<Props> = ({text = "", onclick, variant = "contained",type,disabled=false}) => {
     return (
-        <StyledButton type={type} variant={variant} onClick={onclick}>
+        <StyledButton type={type} variant={variant} onClick={onclick} disabled={disabled}>
             {text}
         </StyledButton>
     );

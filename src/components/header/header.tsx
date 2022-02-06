@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme:Theme) => ({
     header:{
         display: "flex",
         flexDirection: "row",
-        width: "100vw",
+        width: "100%",
         height:"72px",
         backgroundColor:"black",
         color: "white",

@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
     textField: {
         width: "100%",
         margin: "5px 5px 5px 0px !important",
-        paddingRight:"10px !important",
+        paddingRight: "10px !important",
         "& div": {
             margin: "0px !important"
         },
@@ -22,9 +22,7 @@ const useStyles = makeStyles(() => ({
 
         }
     },
-    underline: {
 
-    }
 }))
 
 interface ITextInput {
@@ -33,16 +31,16 @@ interface ITextInput {
     type: string;
     onChange: (value: any) => void;
     label: string;
-    placeHolder?:string;
+    placeHolder?: string;
 }
 
-const TextInput: React.FC<ITextInput> = ({id, name, type = "text", onChange, label,placeHolder}) => {
+const TextInput: React.FC<ITextInput> = ({id, name, type = "text", onChange, label, placeHolder}) => {
     const styles = useStyles()
     return <TextField
         className={styles.textField}
         InputLabelProps={{
             shrink: true,
-            style: { color: 'black' },
+            style: {color: 'black'},
         }}
         InputProps={{
             disableUnderline: true

@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
   container: {
     borderBottom: "2px #ebe9e9 solid",
     paddingLeft: "30px !important",
-    marginTop: "15px",
+    margin: "20px 0",
   },
   typography: {
     fontWeight: "bold",
