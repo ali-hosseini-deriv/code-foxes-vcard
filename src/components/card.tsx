@@ -5,13 +5,15 @@ import { bgcolor, Theme } from "@mui/system";
 
 const useStyles = makeStyles((theme: Theme) => ({
   card: (props: any) => ({
-    backgroundColor: props.bgColor || '#202221',
-    color: props.color || 'white',
+    backgroundColor: props.bgColor || "#202221",
+    color: props.color || "white",
     width: props.width,
     height: props.height,
     padding: "1rem",
     border: "1px solid #D3D3D3",
     borderRadius: "1rem !important",
+    transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+    margin: 'auto',
   }),
 }));
 
@@ -32,14 +34,13 @@ const Card: React.FC<Props> = ({
   bgColor = "#202221",
   id,
 }) => {
-
   const styles = useStyles({ color, width, height, bgColor });
   return (
-    <MuiCard>
+    // <MuiCard>
       <div id={id} className={styles.card}>
         {children}
       </div>
-    </MuiCard>
+    // </MuiCard>
   );
 };
 
