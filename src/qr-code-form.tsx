@@ -8,7 +8,7 @@ import Flex from "./components/flex";
 import Dialog from "./components/dialog";
 import templates from "./enums";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // @ts-ignore
 import qrCode from "qr-code-and-vcard/dist/QrCode";
 import { makeStyles } from "@mui/styles";
@@ -110,8 +110,6 @@ const QrCodeForm = () => {
       }}
     >
       <Text variant="h6" text="YOUR NAME" />
-      <Flex>
-        <div>
           <Grid container>
             <Grid item md={6} xs={12}>
               <TextInput
@@ -120,6 +118,7 @@ const QrCodeForm = () => {
                 label="First Name"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. Olga"}
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -129,6 +128,7 @@ const QrCodeForm = () => {
                 label="Last Name"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. Jones"}
               />
             </Grid>
           </Grid>
@@ -141,6 +141,7 @@ const QrCodeForm = () => {
                 label="Email"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. your@mail.com"}
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -150,6 +151,7 @@ const QrCodeForm = () => {
                 label="Mobile"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. +242 000 0000"}
               />
             </Grid>
           </Grid>
@@ -161,6 +163,7 @@ const QrCodeForm = () => {
                 label="Phone"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. +242 000 0000"}
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -182,6 +185,8 @@ const QrCodeForm = () => {
                 label="Company"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. Google"}
+
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -191,6 +196,8 @@ const QrCodeForm = () => {
                 label="Your Job"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. Frontend Developer"}
+
               />
             </Grid>
           </Grid>
@@ -203,6 +210,8 @@ const QrCodeForm = () => {
                 label="Street Address"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. Your Street name"}
+
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -221,6 +230,7 @@ const QrCodeForm = () => {
                 label="State"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. Tehran"}
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -230,6 +240,7 @@ const QrCodeForm = () => {
                 label="City Address"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. Tehran"}
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -239,11 +250,24 @@ const QrCodeForm = () => {
                 label="Zip Code"
                 type="text"
                 onChange={onValueChange}
+                placeHolder={"e.g. 12345"}
               />
             </Grid>
           </Grid>
-        </div>
+      <Text variant="span" text="ONLINE"/>
+      <Grid container p={2}>
+        <Grid item md={12} xs={12}>
+          <TextInput
+              id="website-input"
+              name="website"
+              label="Website"
+              type="text"
+              onChange={onValueChange}
+              placeHolder={"e.g. your-website.com"}
 
+          />
+        </Grid>
+      </Grid>
         <Grid
           item
           md={6}
@@ -254,7 +278,6 @@ const QrCodeForm = () => {
             className={styles.qr}
           />
         </Grid>
-      </Flex>
       <Button text="Generate QR Code" type="submit" />
 
       <Button text="Generate Visit Card" onclick={openDialog} />

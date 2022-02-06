@@ -28,14 +28,15 @@ const useStyles = makeStyles(() => ({
 }))
 
 interface ITextInput {
-    id: string,
-    name: string,
-    type: string,
-    onChange: (value: any) => void,
-    label: string,
+    id: string;
+    name: string;
+    type: string;
+    onChange: (value: any) => void;
+    label: string;
+    placeHolder?:string;
 }
 
-const TextInput: React.FC<ITextInput> = ({id, name, type = "text", onChange, label}) => {
+const TextInput: React.FC<ITextInput> = ({id, name, type = "text", onChange, label,placeHolder}) => {
     const styles = useStyles()
     return <TextField
         className={styles.textField}
@@ -49,7 +50,7 @@ const TextInput: React.FC<ITextInput> = ({id, name, type = "text", onChange, lab
         type={type}
         onChange={onChange}
         variant="standard"
-
+        placeholder={placeHolder}
     />
 };
 
