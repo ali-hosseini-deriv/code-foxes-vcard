@@ -4,12 +4,7 @@ import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/system";
 
 const useStyles = makeStyles((theme: Theme) => ({
-  Dialog: {
-    textAlign: "left",
-  },
-  container: {
-    width: "30rem",
-  },
+
 }));
 
 type Props = {
@@ -22,10 +17,18 @@ const Dialog: React.FC<Props> = ({ handleClose, is_open, children }) => {
   const styles = useStyles({});
   return (
     <MuiDialog
-      className={styles.Dialog}
+ 
       maxWidth="xl"
       open={is_open}
       onClose={handleClose}
+      PaperProps={{
+        sx: {
+          width: "30%",
+          height: "25%",
+          padding: "30px",
+          border: "2px solid #ff444f",
+        },
+      }}
     >
       {children}
     </MuiDialog>

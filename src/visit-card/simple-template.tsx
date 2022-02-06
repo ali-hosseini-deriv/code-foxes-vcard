@@ -17,21 +17,20 @@ const ModernTemplate: React.FC<Props> = ({ font_color, bg_color, data }) => {
       <Card bgColor={bg_color} id="visit-card">
         <Flex>
           <Flex direction="column">
-            <Label variant="h4" text="Deriv Card" color="#ff4f48" />
             <Flex>
               <Label
-                variant="h6"
+                variant="h4"
                 text={formValues.firstName}
                 color={font_color}
               />
               <Label
-                variant="h6"
+                variant="h4"
                 text={formValues.lastName}
                 color={font_color}
               />
             </Flex>
 
-            <Label variant="h6" text="***" color="#ff4f48" />
+            <Label variant="h6" text="***" color={font_color} />
 
             <Label variant="subtitle1" text="EMAIL:" color={font_color} />
             <Label
@@ -43,7 +42,7 @@ const ModernTemplate: React.FC<Props> = ({ font_color, bg_color, data }) => {
             <Label variant="subtitle1" text="TEL:" color={font_color} />
             <Label
               variant="subtitle2"
-              text={formValues.cellPhone}
+              text={formValues.phone}
               color={font_color}
             />
 
@@ -56,7 +55,7 @@ const ModernTemplate: React.FC<Props> = ({ font_color, bg_color, data }) => {
           </Flex>
 
           <div
-            style={{ marginLeft: "80px", marginTop: "20px" }}
+            style={{ marginLeft: "80px", marginTop: "10px" }}
             dangerouslySetInnerHTML={{ __html: qr_image }}
           />
         </Flex>
