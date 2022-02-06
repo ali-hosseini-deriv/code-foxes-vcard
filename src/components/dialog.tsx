@@ -5,7 +5,10 @@ import { Theme } from "@mui/system";
 
 const useStyles = makeStyles((theme: Theme) => ({
   Dialog: {
-
+    textAlign: "left",
+  },
+  container: {
+    width: "30rem",
   },
 }));
 
@@ -20,7 +23,7 @@ const Dialog: React.FC<Props> = ({ handleClose, is_open, children }) => {
   return (
     <MuiDialog
       className={styles.Dialog}
-      maxWidth="lg"
+      maxWidth="xl"
       open={is_open}
       onClose={handleClose}
     >

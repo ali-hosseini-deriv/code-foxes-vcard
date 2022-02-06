@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../components/card";
 import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/system";
-import Text from "../components/typography";
+import Label from "../components/label";
 import Flex from "../components/flex";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -29,28 +29,33 @@ const SimpleTemplate: React.FC<Props> = ({
   bgColor = "white",
   data,
 }) => {
+  const { formValues, qr_image } = data;
   const styles = useStyles({ color, width, bgColor });
   return (
     <Card bgColor="#202221" id="visit-card" width="42rem">
       <Flex>
         <div
           style={{ marginRight: "40px", marginTop: "20px" }}
-          dangerouslySetInnerHTML={{ __html: data.qr_image }}
+          dangerouslySetInnerHTML={{ __html: qr_image }}
         />
         <Flex direction="column">
-          <Text variant="h4" text="Deriv Card" color="#ff4f48" />
-          <Text variant="h5" text={data.firstName} color="white" />
-          <Text variant="h5" text={data.lastName} color="white" />
-          <Text variant="h4" text="***" color="#ff4f48" />
+          <Label variant="h4" text="Deriv Card" color="#ff4f48" />
+          <Label variant="h5" text={formValues.firstName} color="white" />
+          <Label variant="h5" text={formValues.lastName} color="white" />
+          <Label variant="h4" text="***" color="#ff4f48" />
 
-          <Text variant="h6" text="EMAIL:" color="white" />
-          <Text variant="subtitle1" text={data.email} color="white" />
+          <Label variant="h6" text="EMAIL:" color="white" />
+          <Label variant="subtitle1" text={formValues.email} color="white" />
 
-          <Text variant="h6" text="TEL:" color="white" />
-          <Text variant="subtitle1" text={data.cellPhone} color="white" />
+          <Label variant="h6" text="TEL:" color="white" />
+          <Label
+            variant="subtitle1"
+            text={formValues.cellPhone}
+            color="white"
+          />
 
-          <Text variant="h6" text="WEBSITE:" color="white" />
-          <Text variant="subtitle1" text={data.workUrl} color="white" />
+          <Label variant="h6" text="WEBSITE:" color="white" />
+          <Label variant="subtitle1" text={formValues.workUrl} color="white" />
         </Flex>
       </Flex>
     </Card>

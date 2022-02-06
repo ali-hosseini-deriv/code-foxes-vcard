@@ -25,6 +25,7 @@ type Props = {
 };
 
 const Button: React.FC<Props> = ({text = "", onclick, variant = "contained",type}) => {
+  console.log('text: ', text);
     return (
         <StyledButton type={type} variant={variant} onClick={onclick}>
             {text}

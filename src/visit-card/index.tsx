@@ -4,17 +4,16 @@ import Container from "@mui/material/Container";
 import Text from "../components/typography";
 import Button from "../components/button";
 import Flex from "../components/flex";
-import ModernTemplate from "../templates/modern-template";
+import ModernTemplate from "./modern-template";
 import { styled } from "@mui/styles";
 import templates from "../enums";
 // @ts-ignore
 import domtoimage from "dom-to-image";
-import SimpleTemplate from "../templates/simple-template";
+import SimpleTemplate from "./simple-template";
 
 export default function visitCard() {
   let data: any = useLocation().state;
   
-  console.log('dataL' , data);
 
   async function downloadCard() {
     domtoimage

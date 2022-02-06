@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     "& img": {},
   },
   qrContainer: {
-    marginTop: '100px',
+    marginTop: "100px",
     padding: "30px",
     height: "100%",
     width: "100%",
@@ -85,8 +85,11 @@ const QrCodeForm = () => {
 
   function openDialog(e: any) {
     e.preventDefault();
-    setOpen(true);
-    console.log("form calues: ", formValues);
+    if (formValues.firstName && formValues.lastName && qr_image) {
+      setOpen(true);
+      return;
+    }
+    alert("fill the form and QR code.");
   }
 
   function handleClose() {
@@ -99,7 +102,6 @@ const QrCodeForm = () => {
       cellSize: 2,
     });
     setQRImage(qrcode);
-    console.log("QRImage:", qr_image);
   }
 
   return (
@@ -107,7 +109,6 @@ const QrCodeForm = () => {
       onSubmit={(e) => {
         e.preventDefault();
         generateQRCode();
-        console.log("values", formValues);
       }}
     >
       <Grid container>
