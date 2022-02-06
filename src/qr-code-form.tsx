@@ -9,6 +9,50 @@ import Dialog from "./components/dialog";
 import templates from "./enums";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+// @ts-ignore
+import qrCode from "qr-code-and-vcard/dist/QrCode";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles(() => ({
+  body: {
+    height: "100vh",
+    width: "100vw",
+    backgroundColor: "#fafafa",
+  },
+  gridStyle: {
+    border: "1px solid #ebe9e9",
+    borderRadius: "5px",
+    padding: 30,
+  },
+  form: {
+    padding: "30px",
+    margin: "30px !important",
+
+    // borderColor: "#ebe9e9",
+  },
+  centerElements: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    padding: 0,
+    alignItems: "center",
+  },
+  qr: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    height: "100%",
+    justifyContent: "center",
+    "& img": {},
+  },
+  qrContainer: {
+    padding: "30px",
+    height: "100%",
+    width: "100%",
+  },
+}));
 
 const countries = ["Malta", "Iran", "USA", "Belarus"];
 const defaultValues = {
@@ -26,9 +70,16 @@ const defaultValues = {
   state: "",
   city: "",
 };
-const QrCodeForm = (qr_image: any) => {
+const QrCodeForm = () => {
   const [formValues, setFormValues] = React.useState(defaultValues);
   const [is_open, setOpen] = useState(false);
+
+  const qr_image = qrCode.createVCardQr(formValues, {
+    typeNumber: 30,
+    cellSize: 2,
+  });
+
+  const styles = useStyles();
 
   const onValueChange = (e: any) => {
     const { name, value } = e.target;
@@ -37,7 +88,7 @@ const QrCodeForm = (qr_image: any) => {
 
   function openDialog() {
     setOpen(true);
-    console.log('form calues: ', formValues);
+    console.log("form calues: ", formValues);
   }
 
   function handleClose() {
@@ -52,136 +103,151 @@ const QrCodeForm = (qr_image: any) => {
       }}
     >
       <Text variant="h6" text="YOUR NAME" />
-      <Grid container>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="first-name-input"
-            name="firstName"
-            label="First Name"
-            type="text"
-            onChange={onValueChange}
+      <Flex>
+        <div>
+          <Grid container>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="first-name-input"
+                name="firstName"
+                label="First Name"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="last-name-input"
+                name="lastName"
+                label="Last Name"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+          </Grid>
+          <Text variant="h6" text="CONTACT" />
+          <Grid container>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="email-input"
+                name="email"
+                label="Email"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="mobile-input"
+                name="mobile"
+                label="Mobile"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="phone-input"
+                name="phone"
+                label="Phone"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="fax-input"
+                name="fax"
+                label="Fax"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+          </Grid>
+          <Text variant="h6" text="COMPANY" />
+          <Grid container>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="company-name-input"
+                name="company-name"
+                label="Company"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="job-input"
+                name="job"
+                label="Your Job"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+          </Grid>
+          <Text variant="h6" text="LOCATION" />
+          <Grid container>
+            <Grid item md={12} xs={12}>
+              <TextInput
+                id="street-input"
+                name="street"
+                label="Street Address"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <DropDown
+                name="country"
+                value={formValues.country}
+                label="Country"
+                items={countries}
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="state-input"
+                name="state"
+                label="State"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="city-input"
+                name="city"
+                label="City Address"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextInput
+                id="zip-input"
+                name="zip"
+                label="Zip Code"
+                type="text"
+                onChange={onValueChange}
+              />
+            </Grid>
+          </Grid>
+        </div>
+
+        <Grid
+          item
+          md={6}
+          className={`${styles.gridStyle} ${styles.qrContainer}`}
+        >
+          <div
+            dangerouslySetInnerHTML={{ __html: qr_image }}
+            className={styles.qr}
           />
         </Grid>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="last-name-input"
-            name="lastName"
-            label="Last Name"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-      </Grid>
-      <Text variant="h6" text="CONTACT" />
-      <Grid container>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="email-input"
-            name="email"
-            label="Email"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="mobile-input"
-            name="mobile"
-            label="Mobile"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="phone-input"
-            name="phone"
-            label="Phone"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="fax-input"
-            name="fax"
-            label="Fax"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-      </Grid>
-      <Text variant="h6" text="COMPANY" />
-      <Grid container>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="company-name-input"
-            name="company-name"
-            label="Company"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="job-input"
-            name="job"
-            label="Your Job"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-      </Grid>
-      <Text variant="h6" text="LOCATION" />
-      <Grid container>
-        <Grid item md={12} xs={12}>
-          <TextInput
-            id="street-input"
-            name="street"
-            label="Street Address"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <DropDown
-            name="country"
-            value={formValues.country}
-            label="Country"
-            items={countries}
-            onChange={onValueChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="state-input"
-            name="state"
-            label="State"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="city-input"
-            name="city"
-            label="City Address"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextInput
-            id="zip-input"
-            name="zip"
-            label="Zip Code"
-            type="text"
-            onChange={onValueChange}
-          />
-        </Grid>
-      </Grid>
+      </Flex>
       <Button text="Generate QR Code" type="submit" />
 
       <Button text="Generate Visit Card" onclick={() => openDialog()} />
@@ -196,7 +262,7 @@ const QrCodeForm = (qr_image: any) => {
               padding: "5px",
             }}
             to="./visit-card"
-            state={{formValues, qr_image, template: templates.modern }}
+            state={{ formValues, qr_image, template: templates.modern }}
           >
             Modern Template
           </Link>

@@ -1,8 +1,7 @@
 import * as React from "react";
 import Container from "@mui/material/Container";
 import QrCodeForm from "./qr-code-form";
-// @ts-ignore
-import qrCode from "qr-code-and-vcard/dist/QrCode";
+
 import { Grid, Stack } from "@mui/material";
 import Header from "./components/header/header";
 import { makeStyles } from "@mui/styles";
@@ -48,6 +47,7 @@ const useStyles = makeStyles(() => ({
     width: "100%",
   },
 }));
+
 const testCard = {
   version: "3.0",
   lastName: "Нижинский",
@@ -103,30 +103,14 @@ const testCard = {
 };
 
 export default function App() {
-  const qr_image = qrCode.createVCardQr(testCard, {
-    typeNumber: 30,
-    cellSize: 2,
-  });
   const styles = useStyles();
+
   return (
     <Container maxWidth={false} disableGutters className={styles.body}>
       <Stack>
         <Header />
-
-        <Grid container className={styles.centerElements}>
-          <Grid className={`${styles.gridStyle} ${styles.form}`} item md={7}>
-            <QrCodeForm qr_image={qr_image} />
-          </Grid>
-          <Grid
-            item
-            md={4}
-            className={`${styles.gridStyle} ${styles.qrContainer}`}
-          >
-            <div
-              dangerouslySetInnerHTML={{ __html: qr_image }}
-              className={styles.qr}
-            />
-          </Grid>
+        <Grid className={`${styles.gridStyle} ${styles.form}`} item md={7}>
+          <QrCodeForm />
         </Grid>
       </Stack>
     </Container>

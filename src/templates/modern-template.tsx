@@ -33,7 +33,7 @@ const ModernTemplate: React.FC<Props> = ({
 }) => {
   const styles = useStyles({ color, width, bgColor });
   const {formValues , qr_image}  = data
-  console.log('form values : ')
+  console.log(' qr_image : ',qr_image);
   return (
     <Card bgColor="#202221" id="visit-card" width="42rem">
       <Flex>
