@@ -72,12 +72,8 @@ const defaultValues = {
 };
 const QrCodeForm = () => {
   const [formValues, setFormValues] = React.useState(defaultValues);
+  const [qr_image, setQRImage] = React.useState('');
   const [is_open, setOpen] = useState(false);
-
-  const qr_image = qrCode.createVCardQr(formValues, {
-    typeNumber: 30,
-    cellSize: 2,
-  });
 
   const styles = useStyles();
 
@@ -86,7 +82,8 @@ const QrCodeForm = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  function openDialog() {
+  function openDialog(e: any) {
+    e.preventDefault();
     setOpen(true);
     console.log("form calues: ", formValues);
   }
@@ -95,10 +92,20 @@ const QrCodeForm = () => {
     setOpen(false);
   }
 
+  function generateQRCode() {
+    const qrcode = qrCode.createVCardQr(formValues, {
+      typeNumber: 30,
+      cellSize: 2,
+    });
+    setQRImage(qrcode);
+    console.log("QRImage:", qr_image);
+  }
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        generateQRCode();
         console.log("values", formValues);
       }}
     >
@@ -250,7 +257,7 @@ const QrCodeForm = () => {
       </Flex>
       <Button text="Generate QR Code" type="submit" />
 
-      <Button text="Generate Visit Card" onclick={() => openDialog()} />
+      <Button text="Generate Visit Card" onclick={openDialog} />
 
       <Dialog is_open={is_open} handleClose={handleClose}>
         <Text variant="h6" text="Choose your preffered template" />
