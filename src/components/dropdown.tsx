@@ -50,7 +50,7 @@ const DropDown: React.FC<Props> = ({name, value, label, items, onChange}) => {
                 variant="standard"
                 onChange={onChange}
                 displayEmpty={true}
-
+                disableUnderline
             >
                 {items.map((item: string) => {
                     return <MenuItem key={item} value={item}>{item}</MenuItem>;
