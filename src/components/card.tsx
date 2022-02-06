@@ -1,39 +1,46 @@
 import React from "react";
 import { Card as MuiCard } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Theme } from "@mui/system";
+import { bgcolor, Theme } from "@mui/system";
 
 const useStyles = makeStyles((theme: Theme) => ({
-  Card: {
-    color: (props: any) => props.color,
-    width: (props: any) => props.width,
+  card: (props: any) => ({
+    backgroundColor: props.bgColor || "#202221",
+    color: props.color || "white",
+    width: props.width,
+    height: props.height,
     padding: "1rem",
     border: "1px solid #D3D3D3",
     borderRadius: "1rem !important",
-    backgroundColor: (props: any) => props.bgColor,
-  },
+    transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+    margin: 'auto',
+  }),
 }));
 
 type Props = {
   children: React.ReactNode;
   color?: string;
   width?: string;
+  height?: string;
   bgColor?: string;
   id: string;
 };
 
 const Card: React.FC<Props> = ({
   children,
-  color = "black",
-  width = "4rem",
-  bgColor = "white",
+  color = "white",
+  width = "42rem",
+  height = "22rem",
+  bgColor = "#202221",
   id,
 }) => {
-  const styles = useStyles({ color, width, bgColor });
+  const styles = useStyles({ color, width, height, bgColor });
   return (
-    <MuiCard id={id} className={styles.Card} variant="outlined">
-      {children}
-    </MuiCard>
+    // <MuiCard>
+      <div id={id} className={styles.card}>
+        {children}
+      </div>
+    // </MuiCard>
   );
 };
 

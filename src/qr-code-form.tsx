@@ -89,10 +89,14 @@ const QrCodeForm = () => {
         setFormValues({...formValues, [name]: value});
     };
 
-    function openDialog(e: any) {
-        e.preventDefault();
-        setOpen(true);
+  function openDialog(e: any) {
+    e.preventDefault();
+    if (formValues.firstName && formValues.lastName && qr_image) {
+      setOpen(true);
+      return;
     }
+    alert("fill the form and QR code.");
+  }
 
     function handleClose() {
         setOpen(false);
