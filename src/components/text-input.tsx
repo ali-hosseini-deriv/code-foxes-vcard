@@ -13,8 +13,8 @@ const useStyles = makeStyles(() => ({
         "& input": {
             minHeight: "35px",
             backgroundColor: '#f0f3f7',
-
-
+            paddingLeft: "10px",
+            borderRadius: "5px"
         },
         "& label": {
             position: 'relative',
@@ -43,6 +43,9 @@ const TextInput: React.FC<ITextInput> = ({id, name, type = "text", onChange, lab
         InputLabelProps={{
             shrink: true,
             style: { color: 'black' },
+        }}
+        InputProps={{
+            disableUnderline: true
         }}
         id={id}
         name={name}
