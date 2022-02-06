@@ -36,89 +36,19 @@ const ModernTemplate: React.FC<Props> = ({
     <Card bgColor="#202221" id="visit-card" width="42rem">
       <Flex>
         <Flex direction="column">
-          <Text
-            variant="h4"
-            borderBottom="none"
-            marginBottom="none"
-            containerBoreder="none"
-            text="Deriv Card"
-            color="#ff4f48"
-          />
-          <Text
-            variant="h5"
-            borderBottom="none"
-            marginBottom="none"
-            containerBoreder="none"
-            text={formValues.firstName}
-            color="white"
-          />
-          <Text
-            variant="h5"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text={formValues.lastName}
-            color="white"
-          />
-          <Text
-            variant="h4"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text="***"
-            color="#ff4f48"
-          />
+          <Text variant="h4" text="Deriv Card" color="#ff4f48" />
+          <Text variant="h5" text={formValues.firstName} color="white" />
+          <Text variant="h5" text={formValues.lastName} color="white" />
+          <Text variant="h4" text="***" color="#ff4f48" />
 
-          <Text
-            variant="h6"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text="EMAIL:"
-            color="white"
-          />
-          <Text
-            variant="subtitle1"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text={formValues.email}
-            color="white"
-          />
+          <Text variant="h6" text="EMAIL:" color="white" />
+          <Text variant="subtitle1" text={formValues.email} color="white" />
 
-          <Text
-            variant="h6"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text="TEL:"
-            color="white"
-          />
-          <Text
-            variant="subtitle1"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text={formValues.cellPhone}
-            color="white"
-          />
+          <Text variant="h6" text="TEL:" color="white" />
+          <Text variant="subtitle1" text={formValues.cellPhone} color="white" />
 
-          <Text
-            variant="h6"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text="WEBSITE:"
-            color="white"
-          />
-          <Text
-            variant="subtitle1"
-            borderBottom="none"
-            containerBoreder="none"
-            marginBottom="none"
-            text={formValues.workUrl}
-            color="white"
-          />
+          <Text variant="h6" text="WEBSITE:" color="white" />
+          <Text variant="subtitle1" text={formValues.workUrl} color="white" />
         </Flex>
 
         <div

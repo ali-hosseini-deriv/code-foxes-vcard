@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 const useStyles = makeStyles(() => ({
   container: {
-    borderBottom: (props: any) => props.containerBoreder || "2px #ebe9e9 solid",
+    borderBottom: "2px #ebe9e9 solid",
     paddingLeft: "30px !important",
     marginTop: "15px",
   },
@@ -12,9 +12,8 @@ const useStyles = makeStyles(() => ({
     fontWeight: "bold",
     marginTop: "10px",
     display: "flex",
-    marginBottom: (props: any) => props.marginBottom || "-2px !important",
-    borderBottom: (props: any) => props.borderBottom || "2px #ff444f solid",
-    color: (props: any) => props.color || "black",
+    marginBottom: "-2px !important",
+    borderBottom: "2px #ff444f solid",
     width: "fit-content",
     // display:'inline-block'
   },
@@ -24,28 +23,17 @@ type Props = {
   variant: any;
   text: string;
   color?: string;
-  borderBottom?: string;
-  containerBoreder?: string;
-  marginBottom?: string;
 };
 
 const Text: React.FC<Props> = ({
   text = "",
   variant = "h1",
-  color,
-  borderBottom,
-  containerBoreder,
-  marginBottom,
+  color = "black",
 }) => {
-  const styles = useStyles({
-    borderBottom,
-    color,
-    containerBoreder,
-    marginBottom,
-  });
+  const styles = useStyles();
   return (
     <div className={styles.container}>
-      <Typography className={styles.typography} variant={variant}>
+      <Typography className={styles.typography} variant={variant} color={color}>
         {text}
       </Typography>
     </div>
