@@ -8,7 +8,6 @@ import { Grid } from "@mui/material";
 import Flex from "./components/flex";
 import Dialog from "./components/dialog";
 import templates from "./enums";
-import { Link } from "react-router-dom";
 // @ts-ignore
 import qrCode from "qr-code-and-vcard/dist/QrCode";
 import { makeStyles } from "@mui/styles";
@@ -72,10 +71,12 @@ const defaultValues = {
   zip: "",
   state: "",
   city: "",
+  middleName:""
 };
 const QrCodeForm = () => {
   const [formValues, setFormValues] = React.useState(defaultValues);
   const [qr_image, setQRImage] = React.useState("");
+  const [qr_src, setQRSrc] = React.useState("");
   const [is_open, setOpen] = useState(false);
 
   const styles = useStyles();
@@ -104,8 +105,11 @@ const QrCodeForm = () => {
       cellSize: 2,
     });
     setQRImage(qrcode);
-  }
 
+    const html = new DOMParser().parseFromString(qrcode, "text/html");
+    console.log(html.images[0].src);
+    setQRSrc(html.images[0].src)
+  }
   return (
     <form
       onSubmit={(e) => {
