@@ -76,6 +76,7 @@ const defaultValues = {
 const QrCodeForm = () => {
   const [formValues, setFormValues] = React.useState(defaultValues);
   const [qr_image, setQRImage] = React.useState("");
+  const [qr_src, setQRSrc] = React.useState("");
   const [is_open, setOpen] = useState(false);
 
   const styles = useStyles();
@@ -104,6 +105,10 @@ const QrCodeForm = () => {
       cellSize: 2,
     });
     setQRImage(qrcode);
+
+    const html = new DOMParser().parseFromString(qrcode, "text/html");
+    console.log(html.images[0].src);
+    setQRSrc(html.images[0].src)
   }
   return (
     <form
