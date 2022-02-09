@@ -67,7 +67,7 @@ export default function visitCard() {
         <Container maxWidth={false}>
             <Grid container mt={3}>
                 <Grid container>
-                    <Grid md={2} xs={12}>
+                    <Grid item md={2} xs={12}>
                         <DropDown
                             name="bgColor"
                             value={bg_color}
@@ -91,7 +91,7 @@ export default function visitCard() {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid md={8} overflow='hidden' mt={3}>
+                    <Grid item md={8} overflow='hidden' mt={3}>
                         {data.template === templates.modern ? (
                             <ModernTemplate
                                 data={data}
