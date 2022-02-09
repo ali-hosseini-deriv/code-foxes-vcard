@@ -13,12 +13,15 @@ import { Link } from "react-router-dom";
 import qrCode from "qr-code-and-vcard/dist/QrCode";
 import { makeStyles } from "@mui/styles";
 import LinkButton from "./components/link-button";
+import QrCodeSection from "./qr-code-section";
 
 const useStyles = makeStyles(() => ({
   gridStyle: {
     border: "1px solid #ebe9e9",
     borderRadius: "5px",
     margin: "20px !important",
+    backgroundColor: "#ffffff",
+    alignSelf: "flex-start"
   },
   form: {
     margin: "30px",
@@ -31,14 +34,6 @@ const useStyles = makeStyles(() => ({
     height: "100%",
     padding: 0,
     alignItems: "center",
-  },
-  qr: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    height: "100%",
-    justifyContent: "center",
-    "& img": {},
   },
   qrContainer: {
     padding: "30px",
@@ -299,9 +294,8 @@ const QrCodeForm = () => {
           md={4}
           className={`${styles.gridStyle} ${styles.qrContainer}`}
         >
-          <div
-            dangerouslySetInnerHTML={{ __html: qr_image }}
-            className={styles.qr}
+          <QrCodeSection
+            qr_image={qr_image}
           />
         </Grid>
       </Grid>
